@@ -1,22 +1,23 @@
-# Student Accommodation Management Platform
+# Student Accommodation Platform
 
-A web-based platform for digitising the student accommodation lifecycle for accommodation providers serving students at North-West University (NWU) and the Vaal University of Technology (VUT).
+A web-based platform that digitizes the student accommodation lifecycle for accommodation providers serving NWU and VUT students.
 
-The platform is intended to support the full accommodation workflow:
+## Overview
 
-> Discover, apply, review, allocate, onboard, and manage.
+This project is designed to streamline the student accommodation process across the full lifecycle, from discovery and application through allocation, onboarding, and ongoing management.
 
-## Project status
+The platform supports:
 
-This project is in active early development. The frontend foundation, backend service dependencies, and Supabase integration structure are being established.
+- Student accommodation discovery and search
+- Online applications and status tracking
+- Provider review and management of applications
+- Allocation and onboarding workflows
+- Ongoing accommodation administration and records management
+- Secure access to student and accommodation data
 
-## Core objectives
+## Current status
 
-- Provide students with a clear way to discover suitable accommodation.
-- Support online accommodation applications and application tracking.
-- Help accommodation providers review and manage applications.
-- Support allocation, onboarding, and ongoing accommodation administration.
-- Protect application and accommodation data through role-based access controls and database security policies.
+The project is in active development. The frontend has been established as a React + TypeScript + Vite application with a branded login experience, while the backend is being structured around FastAPI and Supabase services for authentication, storage, and data management.
 
 ## Technology stack
 
@@ -30,41 +31,46 @@ This project is in active early development. The frontend foundation, backend se
 - React Hook Form
 - Zod
 - Tailwind CSS
-- Vitest and Testing Library
+- Vitest
+- Testing Library
 - Oxlint
 
 ### Backend
 
-- FastAPI
 - Python
+- FastAPI
 - Uvicorn
 - Pydantic
+- Pydantic Settings
 - Python Dotenv
+- Supabase client
 
 ### Data and platform services
 
-- PostgreSQL through Supabase
-- Supabase Auth for authentication
-- Supabase Storage for file storage
-- PostgreSQL Row Level Security (RLS) for data access protection
+- PostgreSQL via Supabase
+- Supabase Auth
+- Supabase Storage
+- Row Level Security (RLS)
 
 ## Repository structure
 
 ```text
 .
-├── backend/       Backend API and Python dependencies
-├── frontend/      React and TypeScript application
-└── README.md      Project documentation
+├── backend/        Backend API and Python service setup
+├── frontend/       React and TypeScript application
+├── README.md       Project documentation
+└── .gitignore      Git ignore rules
 ```
 
 ## Prerequisites
 
-Install the following before setting up the project:
+Before you begin, make sure you have:
 
 - Node.js 20 or later
 - npm
 - Python 3.11 or later
-- A Supabase project for database, authentication, and storage services
+- A Supabase project for authentication, database, and storage
+- A local environment setup for app configuration values
 
 ## Getting started
 
@@ -75,24 +81,17 @@ git clone https://github.com/Themba001/student-accommodation-platform.git
 cd student-accommodation-platform
 ```
 
-### 2. Install frontend dependencies
+### 2. Set up the frontend
 
 ```bash
 cd frontend
 npm install
-```
-
-Start the frontend development server with:
-
-```bash
 npm run dev
 ```
 
-The frontend will be available at the local URL shown by Vite.
+The Vite development server will start and provide a local URL for the frontend application.
 
 ### 3. Set up the backend
-
-From the repository root, create and activate a virtual environment:
 
 ```bash
 cd backend
@@ -111,53 +110,51 @@ On Windows PowerShell:
 .venv\Scripts\Activate.ps1
 ```
 
-Install the backend dependencies:
+Install the Python dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Copy the project environment template when one is available, then add the required Supabase and application settings to your local environment. Never commit credentials, service-role keys, or other secrets to the repository.
+Create a local environment file and add the required Supabase and application configuration values. Do not commit secrets, service-role keys, or sensitive student data to the repository.
 
-Run the API with:
+Start the API:
 
 ```bash
 uvicorn main:app --reload
 ```
 
-The exact application module may change as the backend implementation is completed.
-
 ## Available frontend commands
 
-Run these commands from the `frontend` directory:
+Run the following commands from the `frontend` directory:
 
 ```bash
 npm run dev       # Start the development server
-npm run build     # Type-check and build for production
-npm run lint      # Run Oxlint
+npm run build     # Build the production bundle
+npm run lint      # Run lint checks
 npm test          # Run tests in watch mode
-npm run test:run  # Run tests once
+npm run test:run  # Run the test suite once
 npm run preview   # Preview the production build locally
 ```
 
 ## Security considerations
 
-- Use Supabase Row Level Security policies to restrict access to sensitive records.
-- Keep service-role keys on the server and out of frontend code.
-- Validate user input at both the frontend and backend boundaries.
-- Store uploaded documents in protected storage buckets with appropriate access policies.
+- Use Supabase Row Level Security policies to protect access to records.
+- Keep service-role and privileged keys on the server side only.
+- Validate input on both the frontend and backend boundaries.
+- Store uploaded documents in restricted storage buckets with appropriate access policies.
 - Keep local environment files out of version control.
 
-## Contributing
+## Contribution guidelines
 
 Before submitting a change:
 
-1. Install the relevant dependencies.
-2. Run the frontend build and lint checks.
-3. Run the available test suite.
-4. Document any configuration or database changes.
-5. Do not include secrets or personal student data in commits, issues, or pull requests.
+1. Create or work from a feature branch.
+2. Install the relevant dependencies.
+3. Run linting and tests for the affected area.
+4. Document environment or data model changes.
+5. Do not include secrets, personal identifiers, or student records in commits or pull requests.
 
 ## License
 
-A license has not yet been selected for this project.
+A project license has not been selected yet.
