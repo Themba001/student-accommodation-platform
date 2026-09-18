@@ -3,7 +3,7 @@ import { branding } from '../../config/branding'
 export function BrandPanel() {
   return (
     <div
-      className="relative hidden h-full w-[52%] bg-cover bg-center lg:block"
+      className="relative hidden h-screen w-[52%] shrink-0 bg-cover bg-center lg:block"
       style={{ backgroundImage: `url(${branding.backgroundUrl})` }}
     >
       <div className="absolute inset-0 bg-black/20" />

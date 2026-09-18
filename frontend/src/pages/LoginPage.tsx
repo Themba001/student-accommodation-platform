@@ -1,7 +1,11 @@
 import { BrandPanel } from '../components/auth/BrandPanel'
 import { LoginForm } from '../components/auth/LoginForm'
 
-export default function LoginPage() {
+interface LoginPageProps {
+  onGoToRegister?: () => void
+}
+
+export default function LoginPage({ onGoToRegister }: LoginPageProps) {
   return (
     <main className="min-h-screen bg-[#f3efe9]">
       <div className="flex h-screen w-full overflow-hidden border border-[#e7dfd3] bg-white shadow-soft">
@@ -12,7 +16,7 @@ export default function LoginPage() {
             <div className="mb-6 flex justify-center lg:hidden">
               <img src="/src/assets/images/tenants/res-roma/logo.png" alt="Res Roma logo" className="h-12 w-12 rounded-full object-cover" />
             </div>
-            <LoginForm />
+            <LoginForm onGoToRegister={onGoToRegister} />
           </div>
         </div>
       </div>

@@ -12,7 +12,11 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>
 
-export function LoginForm() {
+interface LoginFormProps {
+  onGoToRegister?: () => void
+}
+
+export function LoginForm({ onGoToRegister }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -131,6 +135,16 @@ export function LoginForm() {
             'Sign in'
           )}
         </button>
+
+        {onGoToRegister && (
+          <button
+            type="button"
+            onClick={onGoToRegister}
+            className="mt-3 flex w-full items-center justify-center rounded-xl border border-[#d9cab2] bg-white px-4 py-3 text-base font-medium text-[#2c241f] transition hover:bg-[#f8f4ef]"
+          >
+            Create account
+          </button>
+        )}
       </form>
     </div>
   )
