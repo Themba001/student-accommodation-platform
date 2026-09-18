@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { RegistrationPage } from './RegistrationPage'
+import { RegistrationPage } from '../../pages/RegistrationPage'
 
 describe('RegistrationPage', () => {
   it('renders the first step and validates required fields', async () => {

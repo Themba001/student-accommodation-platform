@@ -19,18 +19,18 @@ export const personalInfoSchema = z.object({
 
 export const academicFundingSchema = z.object({
   university: z.enum(['nwu', 'vut'], {
-    errorMap: () => ({ message: 'Please select your university' }),
+    message: 'Please select your university',
   }),
   fundingMethod: z.enum(['nsfas', 'private_bursary', 'cash_paying'], {
-    errorMap: () => ({ message: 'Please select a funding method' }),
+    message: 'Please select a funding method',
   }),
 })
 
 export const accountSetupBaseSchema = z.object({
   password: z.string().min(8, 'Password must be at least 8 characters'),
   confirmPassword: z.string().min(1, 'Please confirm your password'),
-  agreeToTerms: z.literal(true, {
-    errorMap: () => ({ message: 'You must agree to the Terms of Service and Privacy Policy' }),
+  agreeToTerms: z.boolean().refine((value) => value, {
+    message: 'You must agree to the Terms of Service and Privacy Policy',
   }),
 })
 

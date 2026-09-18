@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { LoginForm } from './LoginForm'
+import { LoginForm } from '../../components/auth/LoginForm'
 
 describe('LoginForm', () => {
   it('renders the form fields and actions', () => {
