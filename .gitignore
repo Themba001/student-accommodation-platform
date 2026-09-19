@@ -16,6 +16,8 @@ build/
 .env
 .env.local
 .env.*.local
+backend/.env
+backend/.env.*
 
 # Supabase
 supabase/.branches
